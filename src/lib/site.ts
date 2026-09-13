@@ -1,7 +1,7 @@
 export const site = {
   brand: "NumExpress",
   tagline: "Numéros virtuels & abonnements au Niger",
-  whatsapp: "22789044291",
+  whatsapp: "22789054291",
   paymentChannels: [
     {
       key: "mynita",
