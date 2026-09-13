@@ -1,27 +1,22 @@
 export const site = {
   brand: "NumExpress",
   tagline: "Numéros virtuels & abonnements au Niger",
-  whatsapp: "22700000000", // TODO: remplacer par le vrai numéro WhatsApp de la boutique
+  whatsapp: "22789044291",
   paymentChannels: [
     {
       key: "mynita",
       label: "MyNita",
-      number: "+227 XX XX XX XX", // TODO: à confirmer
+      number: "+22789054291",
     },
     {
       key: "myamana",
       label: "MyAmana",
-      number: "+227 XX XX XX XX", // TODO: à confirmer
+      number: "+22789054291",
     },
     {
       key: "airtel",
       label: "Airtel Money",
-      number: "+227 XX XX XX XX", // TODO: à confirmer
-    },
-    {
-      key: "moov",
-      label: "Moov Money",
-      number: "+227 XX XX XX XX", // TODO: à confirmer
+      number: "+22789054291",
     },
   ],
 };
