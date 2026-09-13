@@ -28,7 +28,7 @@ function OrderPage() {
   const { order } = Route.useLoaderData();
   const [copied, setCopied] = useState(false);
   const channel = getPaymentChannel(order.payment_method);
-  const status = statusLabels[order.status] ?? statusLabels.en_attente;
+  const status = statusLabels[order.status] ?? { label: "En attente", tone: "bg-accent text-accent-foreground" };
 
   const waMessage = `Bonjour, j'ai payé ma commande ${order.reference} (${order.service} — ${formatFcfa(order.amount_fcfa)}). Voici la capture du paiement :`;
 

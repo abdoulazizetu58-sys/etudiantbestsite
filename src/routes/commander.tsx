@@ -46,7 +46,7 @@ function CommanderPage() {
   const [selected, setSelected] = useState<CatalogItem | undefined>(item);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [payment, setPayment] = useState(site.paymentChannels[0].key);
+  const [payment, setPayment] = useState(site.paymentChannels[0]!.key);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
