@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 export const getOrderByReference = createServerFn({ method: "GET" })
-  .inputValidator((d) => z.object({ reference: z.string().min(3) }).parse(d))
+  .validator((d) => z.object({ reference: z.string().min(3) }).parse(d))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: order, error } = await supabaseAdmin
