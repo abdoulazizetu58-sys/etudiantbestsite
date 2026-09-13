@@ -14,7 +14,86 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      orders: {
+        Row: {
+          amount_fcfa: number
+          buyer_name: string
+          buyer_phone: string
+          category: string
+          created_at: string
+          id: string
+          payment_method: string
+          phone_number_id: string | null
+          reference: string
+          service: string
+          status: string
+        }
+        Insert: {
+          amount_fcfa: number
+          buyer_name: string
+          buyer_phone: string
+          category?: string
+          created_at?: string
+          id?: string
+          payment_method: string
+          phone_number_id?: string | null
+          reference: string
+          service: string
+          status?: string
+        }
+        Update: {
+          amount_fcfa?: number
+          buyer_name?: string
+          buyer_phone?: string
+          category?: string
+          created_at?: string
+          id?: string
+          payment_method?: string
+          phone_number_id?: string | null
+          reference?: string
+          service?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_phone_number_id_fkey"
+            columns: ["phone_number_id"]
+            isOneToOne: false
+            referencedRelation: "phone_numbers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      phone_numbers: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          is_available: boolean
+          price_fcfa: number
+          service: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_available?: boolean
+          price_fcfa: number
+          service: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_available?: boolean
+          price_fcfa?: number
+          service?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
