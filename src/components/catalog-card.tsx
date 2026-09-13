@@ -6,7 +6,6 @@ import type { CatalogItem } from "@/lib/catalog";
 export function CatalogCard({ item }: { item: CatalogItem }) {
   const outOfStock = item.stock !== null && item.stock <= 0;
   const available = item.is_available && !outOfStock;
-  const lowStock = item.stock !== null && item.stock > 0;
 
   return (
     <div className="card-surface flex flex-col p-5 transition-shadow hover:shadow-md">
