@@ -6,7 +6,6 @@ import type { CatalogItem } from "@/lib/catalog";
 export function CatalogCard({ item }: { item: CatalogItem }) {
   const outOfStock = item.stock !== null && item.stock <= 0;
   const available = item.is_available && !outOfStock;
-  const lowStock = item.stock !== null && item.stock > 0;
 
   return (
     <div className="card-surface flex flex-col p-5 transition-shadow hover:shadow-md">
@@ -35,11 +34,6 @@ export function CatalogCard({ item }: { item: CatalogItem }) {
           <span className="flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary">
             <Globe className="h-3 w-3" />
             Tous les pays
-          </span>
-        )}
-        {lowStock && (
-          <span className="rounded-full bg-accent/40 px-2.5 py-1 text-xs font-bold text-foreground">
-            Plus que {item.stock} pièce{item.stock === 1 ? "" : "s"}
           </span>
         )}
       </div>
