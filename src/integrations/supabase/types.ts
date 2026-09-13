@@ -73,6 +73,7 @@ export type Database = {
           is_available: boolean
           price_fcfa: number
           service: string
+          stock: number | null
         }
         Insert: {
           category?: string
@@ -82,6 +83,7 @@ export type Database = {
           is_available?: boolean
           price_fcfa: number
           service: string
+          stock?: number | null
         }
         Update: {
           category?: string
@@ -91,6 +93,7 @@ export type Database = {
           is_available?: boolean
           price_fcfa?: number
           service?: string
+          stock?: number | null
         }
         Relationships: []
       }
