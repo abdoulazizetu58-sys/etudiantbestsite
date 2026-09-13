@@ -15,6 +15,13 @@
       "when": 1789301041587,
       "tag": "0001_add_stock_to_phone_numbers",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789301629429,
+      "tag": "0002_add_country_to_orders",
+      "breakpoints": true
     }
   ]
 }
