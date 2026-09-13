@@ -36,11 +36,6 @@ export function CatalogCard({ item }: { item: CatalogItem }) {
             Tous les pays
           </span>
         )}
-        {lowStock && (
-          <span className="rounded-full bg-accent/40 px-2.5 py-1 text-xs font-bold text-foreground">
-            Plus que {item.stock} pièce{item.stock === 1 ? "" : "s"}
-          </span>
-        )}
       </div>
       <div className="mt-4 flex items-center justify-between">
         <p className="font-display text-xl text-primary">{formatFcfa(item.price_fcfa)}</p>
