@@ -6,6 +6,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { catalogQueryOptions, type CatalogItem } from "@/lib/catalog";
 import { supabase } from "@/integrations/supabase/client";
 import { categoryLabels, formatFcfa, site } from "@/lib/site";
+import { countries } from "@/lib/countries";
 import { z } from "zod";
 
 export const Route = createFileRoute("/commander")({
@@ -46,6 +47,7 @@ function CommanderPage() {
   const [selected, setSelected] = useState<CatalogItem | undefined>(item);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [country, setCountry] = useState("");
   const [payment, setPayment] = useState(site.paymentChannels[0]!.key);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -97,6 +99,7 @@ function CommanderPage() {
         buyer_name: name.trim(),
         buyer_phone: phone.trim(),
         payment_method: payment,
+        country,
       });
       if (insertError) throw insertError;
       await navigate({ to: "/commande/$ref", params: { ref: reference } });
@@ -154,6 +157,30 @@ function CommanderPage() {
               placeholder="+227 …"
               required
             />
+          </div>
+          <div>
+            <label htmlFor="country" className="field-label">
+              Pays du numéro souhaité
+            </label>
+            <select
+              id="country"
+              className="input-field"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Choisis ton pays
+              </option>
+              {countries.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Disponible pour tous les pays. Si ton pays n'est pas dans la liste, écris-nous sur WhatsApp.
+            </p>
           </div>
           <div>
             <span className="field-label">Moyen de paiement</span>
