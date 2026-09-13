@@ -30,7 +30,9 @@ function OrderPage() {
   const channel = getPaymentChannel(order.payment_method);
   const status = statusLabels[order.status] ?? { label: "En attente", tone: "bg-accent text-accent-foreground" };
 
-  const waMessage = `Bonjour, j'ai payé ma commande ${order.reference} (${order.service} — ${formatFcfa(order.amount_fcfa)}). Voici la capture du paiement :`;
+  const waMessage = `Bonjour, j'ai payé ma commande ${order.reference} (${order.service}${
+    order.country ? ` — pays : ${order.country}` : ""
+  } — ${formatFcfa(order.amount_fcfa)}). Voici la capture du paiement :`;
 
   return (
     <div className="min-h-screen">
@@ -72,6 +74,12 @@ function OrderPage() {
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Paiement</p>
               <p className="mt-1 font-semibold">{channel?.label ?? order.payment_method}</p>
             </div>
+            {order.country && (
+              <div className="rounded-2xl bg-muted p-4">
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Pays du numéro</p>
+                <p className="mt-1 font-semibold">{order.country}</p>
+              </div>
+            )}
           </div>
 
           <div className="mt-8 border-t pt-6">
