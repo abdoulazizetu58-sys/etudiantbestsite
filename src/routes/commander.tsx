@@ -158,30 +158,32 @@ function CommanderPage() {
               required
             />
           </div>
-          <div>
-            <label htmlFor="country" className="field-label">
-              Pays du numéro souhaité
-            </label>
-            <select
-              id="country"
-              className="input-field"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              required
-            >
-              <option value="" disabled>
-                Choisis ton pays
-              </option>
-              {countries.map((c) => (
-                <option key={c} value={c}>
-                  {c}
+          {current.category === "numero" && (
+            <div>
+              <label htmlFor="country" className="field-label">
+                Pays du numéro souhaité
+              </label>
+              <select
+                id="country"
+                className="input-field"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                required
+              >
+                <option value="" disabled>
+                  Choisis ton pays
                 </option>
-              ))}
-            </select>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Disponible pour tous les pays. Si ton pays n'est pas dans la liste, écris-nous sur WhatsApp.
-            </p>
-          </div>
+                {countries.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Disponible pour tous les pays. Si ton pays n'est pas dans la liste, écris-nous sur WhatsApp.
+              </p>
+            </div>
+          )}
           <div>
             <span className="field-label">Moyen de paiement</span>
             <div className="grid gap-3 sm:grid-cols-2">
